@@ -61,6 +61,14 @@ nav {
 	height: 40px;
 	margin: 0 auto;	
 }
+
+.nav-container2 {
+	width: 960px;
+	height: 40px;
+	margin: 0 auto;	
+}
+
+
 .nav-container a , li {
 	text-decoration:none;
 	color: #ffffff;
@@ -74,6 +82,23 @@ nav {
 .nav-container a:hover , li {
 	color: #fff;
 }
+
+
+.nav-container2 a , li {
+	text-decoration:none;
+	color: #ffffff;
+	display: inline-block;
+	font-family: Arial;
+	font-size: 15px;
+	margin-left: 5px;
+	line-height: 40px;
+	font-weight: bold;
+}
+.nav-container2 a:hover , li {
+	color: #fff;
+}
+
+
 .selected a {
 	color: #fff;
 	background-color: #009ad7;

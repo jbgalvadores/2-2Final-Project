@@ -8,9 +8,9 @@
 <nav>
 	<div class="nav-container">
 		<ul >
-		<li> <a href="index.html">HOME</a></li>
-		<li class="selected"> <a href="services.html">SERVICES</a></li>
-		<li> <a href="contact.html">CONTACT US</a></li>
+		<li> <a href="index.php">HOME</a></li>
+		<li class="selected"> <a href="services.php">SERVICES</a></li>
+		<li> <a href="contact.php">CONTACT US</a></li>
 		
 		</ul>
 

@@ -1,42 +1,29 @@
 <?php
-
-session_start();
-$error = '';
-
-if (isset($_POST['submit']))
-{
-    if (empty($_POST['username']) || empty($_POST['password']))
-    {
-        $error = "Username or Password is ivnalid";
+    include('login.php'); // Includes Login Script
+    if(isset($_SESSION['login_user'])){
+    header("location: profile.php"); // Redirecting To Profile Page
     }
-
-else
-{
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    $conn = mysqli_connect("localhost", "root", "", "projects");
-
-    $query = "SELECT username, password from weblogin where username=? AND password=? LIMIT 1";
-
-    $stmt = $conn->prepare($query);
-    $stmt -> bind_param("ss", $username, $password);
-    $stmt -> execute();
-    $stmt -> bind_result($username, $password);
-    $stmt -> store_result();
-
-    if($stmt -> fetch())
-    {
-        $_SESSION['login_user'] = $username;
-        header("location: index.php");
-    }
-    else
-    {
-        $error = "Username or Password is invalid";
-    }
-    mysqli_close($conn);
-}
-
-}
-
 ?>
+    <!DOCTYPE html>
+    <html>
+		<head>
+			<title>Login Form in PHP with Session</title>
+			<link href="/css/style-login.css" rel="stylesheet" type="text/css">
+		</head>
+    <body>
+			<div id="login">
+			<h2>Login Form</h2>
+			<form action="" method="post">
+			
+			<label>UserName :</label>
+			<input id="name" name="username" placeholder="username" type="text">
+			
+			<label>Password :</label>
+			<input id="password" name="password" placeholder="**********" type="password"><br><br>
+			
+			<input name="submit" type="submit" value=" Login ">
+			<span><?php echo $error; ?></span>
+		</form>
+    </div>
+  </body>
+</html>

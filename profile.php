@@ -1,11 +1,9 @@
 <?php
-    include('index.php'); // Includes Login Script
-    if(isset($_SESSION['login_user'])){
-    header("location: profile.php"); // Redirecting To Profile Page
-	}
-	ini_set('memory_limit', '-1');
-?>
-
+    include('session.php');
+    if(!isset($_SESSION['login_user'])){
+    header("location: login.php"); // Redirecting To Home Page
+}
+    ?>
 
 
 <!DOCTYPE html>
@@ -18,12 +16,13 @@
   </head>
 <body>
 <nav>
-	<div class="nav-container">
+	<div id="profile" class="nav-container">
 		<ul >
 		<li class="selected"> <a href="index.php">HOME</a></li>
 		<li> <a href="services.php">SERVICES</a></li>
 		<li> <a href="contact.php">CONTACT US</a></li>
-		<li> <a href="login.php" style="padding-left: 570px;">Login</a></li>
+        <b id="welcome">Welcome : <i><?php echo $login_session; ?></i></b>
+        <b id="logout" style="padding-left: 490px;"><a href="logout.php">Log Out</a></b>
 		</ul>
 
 	</div>
